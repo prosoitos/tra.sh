@@ -1,6 +1,6 @@
-The idea for the behaviour of these scripts directly comes from [[https://github.com/andreafrancia/trash-cli][trash-cli]]: I really like trash-cli, but I wanted to make modifications to the way it lists and allows the restoration of files and, because I do not use python, I decided to write shell scripts instead. This allows for extremely easy customization and tweaking based on personal preferences.
+The idea for the behaviour of these scripts directly comes from [[https://github.com/andreafrancia/trash-cli][trash-cli]]: I really like trash-cli, but I wanted to make modifications to the way it lists and allows the restoration of files and, because I do not use python, I decided to write shell scripts instead. This allows for extremely easy customization and tweaking based on personal preferences, and it allows to use the power of [[https://github.com/junegunn/fzf][fzf]].
 
-These scripts require very minor editing to run in bash or other shells.
+These scripts are written for zsh, but require very minor editing to run in bash or other shells.
 
 ** Differences with trash-cli
 
@@ -8,7 +8,7 @@ These scripts require very minor editing to run in bash or other shells.
 - Files are listed chronologically (in reverse chronological order so that the last deleted file/directory is the easiest to access)
 - Trashed directories are marked with "D" to distinguish them from trashed files
 - All files in ~$HOME/.local/share/Trash/files~ are listed, even if their meta data in ~$HOME/.local/share/Trash/info~ is missing for whatever reason
-- It is possible to list and restore only the files which were trashed from the current directory ([[https://github.com/andreafrancia/trash-cli][trash-cli]]'s behaviour), but it is also possible to list all files in the trash and restore any of them from any directory
+- It is possible to list and restore only the files which were trashed from the current directory ([[https://github.com/andreafrancia/trash-cli][trash-cli]]'s behaviour), but it is also possible to list all files/directories in the trash and restore any of them from any directory
 - Trashed files can be previewed with [[https://github.com/junegunn/fzf][fzf]]
 - All trashed files go to the user's trash
 
@@ -24,7 +24,7 @@ Simply clone this repository or copy these scripts in your ~$PATH~.
 
 Simply run any of the scripts from the command line (or from ranger, rofi, or your usual way to run commands).
 
-You might want to set aliases (in your `.zshrc` file, or `alias.zsh` file, or `.bashrc` file, or wherever you normally define shell aliases). That way, you only have to call the alias to run the corresponding script.
+You might want to set aliases (in your ~.zshrc~ file, or ~alias.zsh~ file, or ~.bashrc~ file, or wherever you normally define shell aliases). That way, you only have to call the alias to run the corresponding script.
 
 I personally use these aliases:
 
