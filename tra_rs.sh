@@ -1,14 +1,14 @@
 #!/bin/zsh
 
-files_path=/home/marie/.local/share/Trash/files
-info_path=/home/marie/.local/share/Trash/info
+files_path=$HOME/.local/share/Trash/files
+info_path=$HOME/.local/share/Trash/info
 
 file=$(
     # *(D) instead of * to also include the dot files
-    for f in /home/marie/.local/share/Trash/files/*(D)
+    for f in $HOME/.local/share/Trash/files/*(D)
     do
-	# remove /home/marie/.local/share/Trash/files/ from f
-	basename=${f#/home/marie/.local/share/Trash/files/}
+	# remove $HOME/.local/share/Trash/files/ from f
+	basename=${f#$HOME/.local/share/Trash/files/}
 
 	# 2> /dev/null so as not to get error messages if the .trashinfo file is missing
 	original_path=$(grep 'Path=' $info_path/$basename.trashinfo | sed 's/Path=//' | sed 's/%20/ /g') 2> /dev/null
