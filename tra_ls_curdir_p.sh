@@ -6,6 +6,11 @@ dir=$(pwd)
 
 for f in $HOME/.local/share/Trash/files/*(D)
 do
+    if [[ -d $f ]] ; then
+	dir_or_file="D"
+    elif [[ -f $f ]] ; then
+	dir_or_file="|"
+    fi
     # remove $HOME/.local/share/Trash/files/ from f
     basename=${f#$HOME/.local/share/Trash/files/}
 
