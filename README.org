@@ -1,4 +1,4 @@
-The idea for the behaviour of these scripts directly come from [trash-cli](https://github.com/andreafrancia/trash-cli): I used and really liked trash-cli for a long time. But I wanted to make modifications to the way it lists and allows the restoration of files and, because I do not use python, I decided to write shell scripts instead.
+The idea for the behaviour of these scripts directly come from [[https://github.com/andreafrancia/trash-cli][trash-cli]]: I used and really liked trash-cli for a long time. But I wanted to make modifications to the way it lists and allows the restoration of files and, because I do not use python, I decided to write shell scripts instead.
 
 * Differences with trash-cli
 
@@ -9,7 +9,7 @@ The idea for the behaviour of these scripts directly come from [trash-cli](https
 
 * Requirements
 
-These scripts require [fzf](https://github.com/junegunn/fzf).
+These scripts require [[https://github.com/junegunn/fzf][fzf]].
 
 * Usage
 
