@@ -1,4 +1,6 @@
-The idea for the behaviour of these scripts directly comes from [[https://github.com/andreafrancia/trash-cli][trash-cli]]: I really like trash-cli, but I wanted to make modifications to the way it lists and allows the restoration of files and, because I do not use python, I decided to write shell scripts instead. This allows for extremely easy customization and tweaking based on personal preferences. These scripts require very minor editing to run in bash or other shells.
+The idea for the behaviour of these scripts directly comes from [[https://github.com/andreafrancia/trash-cli][trash-cli]]: I really like trash-cli, but I wanted to make modifications to the way it lists and allows the restoration of files and, because I do not use python, I decided to write shell scripts instead. This allows for extremely easy customization and tweaking based on personal preferences.
+
+These scripts require very minor editing to run in bash or other shells.
 
 ** Differences with trash-cli
 
@@ -24,6 +26,8 @@ Simply run any of the scripts from the command line, or from ranger, rofi, etc.
 
 I personally use these aliases:
 
+*** list trashed files/directories
+
 #+BEGIN_src sh
 # list all trashed files/folders
 alias tls='zsh /home/marie/bin/my_bin/tra.sh/tra_ls.sh'
@@ -36,7 +40,11 @@ alias tlsp='zsh /home/marie/bin/my_bin/tra.sh/tra_ls_p.sh'
 
 # list files/folders trashed from the current directory with preview
 alias tlsdp='zsh /home/marie/bin/my_bin/tra.sh/tra_ls_dir_p.sh'
+#+END_src
 
+*** restore files/directories
+
+#+BEGIN_src sh
 # restore any file/folder
 alias trs='zsh /home/marie/bin/my_bin/tra.sh/tra_rs.sh'
 
@@ -48,4 +56,10 @@ alias trsp='zsh /home/marie/bin/my_bin/tra.sh/tra_rs_p.sh'
 
 # restore file/folder trashed from current directory with preview
 alias trsdp='zsh /home/marie/bin/my_bin/tra.sh/tra_rs_dir_p.sh'
+#+END_src
+
+*** clean trash
+
+#+BEGIN_src sh
+alias tcl='zsh /home/marie/bin/my_bin/tra.sh/tra_cl.sh'
 #+END_src
