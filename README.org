@@ -1,17 +1,17 @@
 The idea for the behaviour of these scripts directly come from [[https://github.com/andreafrancia/trash-cli][trash-cli]]: I used and really liked trash-cli for a long time. But I wanted to make modifications to the way it lists and allows the restoration of files and, because I do not use python, I decided to write shell scripts instead.
 
-* Differences with trash-cli
+** Differences with trash-cli
 
 - tra.sh uses fzf to find trashed files very easily from pattern, path, or date
 - Files are listed in reversed chronological order
 - All files in $HOME/.local/share/Trash/files are listed and can be restored, even if their meta data in $HOME/.local/share/Trash/info is missing for whatever reason
 - It is possible to only list and restore the files which were trashed from the current directory (trash-cli's behaviour), but it is also possible to list all files in the trash and restore any of them from any directory
 
-* Requirements
+** Requirements
 
 These scripts require [[https://github.com/junegunn/fzf][fzf]].
 
-* Usage
+** Usage
 
 Simply run any of the scripts from the command line.
 
