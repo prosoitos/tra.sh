@@ -2,12 +2,12 @@ The idea for the behaviour of these scripts directly comes from [[https://github
 
 ** Differences with trash-cli
 
-- tra.sh uses [[https://github.com/junegunn/fzf][fzf]] to find trashed files very easily from pattern, name, path, or date
-- Files are listed chronologically (in reverse chronological order so that the last deleted file is the easiest one to access)
+- tra.sh uses [[https://github.com/junegunn/fzf][fzf]] to find trashed files/directories very easily from pattern, name, path, or date
+- Files are listed chronologically (in reverse chronological order so that the last deleted file/directory is the easiest to access)
 - Trashed directories are marked with "D" to distinguish them from trashed files
 - All files in ~$HOME/.local/share/Trash/files~ are listed, even if their meta data in ~$HOME/.local/share/Trash/info~ is missing for whatever reason
-- It is possible to only list and restore the files which were trashed from the current directory (trash-cli's behaviour), but it is also possible to list all files in the trash and restore any of them from any directory
-- File listed or restored can be previewed with [[https://github.com/junegunn/fzf][fzf]]
+- It is possible to list and restore only the files which were trashed from the current directory ([[https://github.com/andreafrancia/trash-cli][trash-cli]]'s behaviour), but it is also possible to list all files in the trash and restore any of them from any directory
+- Trashed files can be previewed with [[https://github.com/junegunn/fzf][fzf]]
 - All trashed files go to the user's trash
 
 ** Requirements
