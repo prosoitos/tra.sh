@@ -22,11 +22,13 @@ Simply clone this repository or copy these scripts in your ~$PATH~.
 
 ** Usage
 
-Simply run any of the scripts from the command line, or from ranger, rofi, etc.
+Simply run any of the scripts from the command line (or from ranger, rofi, or your usual way to run commands).
+
+You might want to set aliases (in your `.zshrc` file, or `alias.zsh` file, or `.bashrc` file, or wherever you normally define shell aliases). That way, you only have to call the alias to run the corresponding script.
 
 I personally use these aliases:
 
-*** list trashed files/directories
+**** List trashed files/directories
 
 #+BEGIN_src sh
 # list all trashed files/folders
@@ -42,7 +44,7 @@ alias tlsp='zsh /home/marie/bin/my_bin/tra.sh/tra_ls_p.sh'
 alias tlsdp='zsh /home/marie/bin/my_bin/tra.sh/tra_ls_dir_p.sh'
 #+END_src
 
-*** restore files/directories
+**** Restore files/directories
 
 #+BEGIN_src sh
 # restore any file/folder
@@ -58,7 +60,7 @@ alias trsp='zsh /home/marie/bin/my_bin/tra.sh/tra_rs_p.sh'
 alias trsdp='zsh /home/marie/bin/my_bin/tra.sh/tra_rs_dir_p.sh'
 #+END_src
 
-*** clean trash
+**** Clean trash
 
 #+BEGIN_src sh
 alias tcl='zsh /home/marie/bin/my_bin/tra.sh/tra_cl.sh'
