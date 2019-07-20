@@ -31,37 +31,44 @@ I personally use these aliases:
 **** List trashed files/directories
 
 #+BEGIN_src sh
-# list all trashed files/folders
+# List all trashed files/folders
 alias tls='zsh /home/marie/bin/my_bin/tra.sh/tra_ls.sh'
 
-# list only the files/folders trashed from the current directory
+# List only the files/folders trashed from the current directory
 alias tlsd='zsh /home/marie/bin/my_bin/tra.sh/tra_ls_dir.sh'
 
-# list all trashed files/folders with preview
+# List all trashed files/folders with preview
 alias tlsp='zsh /home/marie/bin/my_bin/tra.sh/tra_ls_p.sh'
 
-# list files/folders trashed from the current directory with preview
+# List files/folders trashed from the current directory with preview
 alias tlsdp='zsh /home/marie/bin/my_bin/tra.sh/tra_ls_dir_p.sh'
 #+END_src
 
 **** Restore files/directories
 
 #+BEGIN_src sh
-# restore any file/folder
+# Restore any file/folder
 alias trs='zsh /home/marie/bin/my_bin/tra.sh/tra_rs.sh'
 
-# restore file/folder trashed from current directory
+# Restore file/folder trashed from current directory
 alias trsd='zsh /home/marie/bin/my_bin/tra.sh/tra_rs_dir.sh'
 
-# restore any file/folder with preview
+# Restore any file/folder with preview
 alias trsp='zsh /home/marie/bin/my_bin/tra.sh/tra_rs_p.sh'
 
-# restore file/folder trashed from current directory with preview
+# Restore file/folder trashed from current directory with preview
 alias trsdp='zsh /home/marie/bin/my_bin/tra.sh/tra_rs_dir_p.sh'
 #+END_src
 
 **** Clean trash
 
 #+BEGIN_src sh
+# Permanently delete all files/directories in the trash
 alias tcl='zsh /home/marie/bin/my_bin/tra.sh/tra_cl.sh'
+
+# Only delete files/directories in the trash which are n days old or older
+alias tcld='zsh /home/marie/bin/my_bin/tra.sh/tra_cl_date.sh'
+# Add the number of days after this command
+# For example, in order to delete all files/directories 3 days old or older, type:
+# tcld 3
 #+END_src
