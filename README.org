@@ -30,21 +30,27 @@ I personally use these aliases:
 
 **** List trashed files/directories
 
+***** List all trashed files/folders
 #+BEGIN_src sh
-# List all trashed files/folders
 alias tls='zsh /home/marie/bin/my_bin/tra.sh/tra_ls.sh'
+#+END_src
 
-# List only the files/folders trashed from the current directory
+***** List only the files/folders trashed from the current directory
+#+BEGIN_src sh
 alias tlsd='zsh /home/marie/bin/my_bin/tra.sh/tra_ls_dir.sh'
+#+END_src
 
-# List all trashed files/folders with preview
+***** List all trashed files/folders with preview
+#+BEGIN_src sh
 alias tlsp='zsh /home/marie/bin/my_bin/tra.sh/tra_ls_p.sh'
+#+END_src
 
-# List files/folders trashed from the current directory with preview
+***** List files/folders trashed from the current directory with preview
+#+BEGIN_src sh
 alias tlsdp='zsh /home/marie/bin/my_bin/tra.sh/tra_ls_dir_p.sh'
 #+END_src
 
-**** Restore files/directories
+**** Restore trashed files/directories
 
 #+BEGIN_src sh
 # Restore any file/folder
