@@ -1,20 +1,31 @@
-The idea for the behaviour of these scripts directly comes from [[https://github.com/andreafrancia/trash-cli][trash-cli]]: I really like trash-cli, but I wanted to make modifications to the way it lists and allows the restoration of files and, because I do not use python, I decided to write shell scripts instead. This allows for extremely easy customization and tweaking based on personal preferences, and it allows to use the power of [[https://github.com/junegunn/fzf][fzf]].
+[[https://user-images.githubusercontent.com/4634851/61598582-00b8b700-abd5-11e9-9192-a12cfb6c8866.png]]
 
-These scripts are written for zsh, but require very minor editing to run in bash or other shells.
+
+The idea for the behaviour of these scripts directly comes from [[https://github.com/andreafrancia/trash-cli][trash-cli]]. I really like trash-cli, but I wanted to make modifications to the way it lists and allows the restoration of files. In particular, I wanted to be able to see or restore my trashed files from any directory, not just the one from which the files were trashed. I also wanted to have a better system to find the files by sorting them chronologically and by using the power of [[https://github.com/junegunn/fzf][fzf]]. Because I do not use python, I decided to write shell scripts instead.
 
 ** Differences with trash-cli
 
+As with [[https://github.com/andreafrancia/trash-cli][trash-cli]], tra.sh allows to:
+- send files and directories to trash
+- see the content of the trash easily
+- restore these files/directories easily
+- empty the trash based on cutoff date, pattern, etc. or fully clean it
+
+tra.sh differs from [[https://github.com/andreafrancia/trash-cli][trash-cli]] in the following:
 - tra.sh uses [[https://github.com/junegunn/fzf][fzf]] to find trashed files/directories very easily from pattern, name, path, or date
-- Files are listed chronologically (in reverse chronological order so that the last deleted file/directory is the easiest to access)
-- Trashed directories are marked with "D" to distinguish them from trashed files
-- All files in ~$HOME/.local/share/Trash/files~ are listed, even if their meta data in ~$HOME/.local/share/Trash/info~ is missing for whatever reason
-- It is possible to list and restore only the files which were trashed from the current directory ([[https://github.com/andreafrancia/trash-cli][trash-cli]]'s behaviour), but it is also possible to list all files/directories in the trash and restore any of them from any directory
-- Trashed files can be previewed with [[https://github.com/junegunn/fzf][fzf]]
-- All trashed files go to the user's trash
+- files are listed chronologically (in reverse chronological order so that the last deleted file/directory is the easiest to access)
+- trashed directories are marked with "D" to distinguish them from trashed files
+- all files in ~$HOME/.local/share/Trash/files~ are listed, even if their meta data in ~$HOME/.local/share/Trash/info~ is missing for whatever reason
+- it is possible to list and restore only the files which were trashed from the current directory ([[https://github.com/andreafrancia/trash-cli][trash-cli]]'s behaviour), but it is also possible to list all files/directories in the trash and restore any of them from any directory
+- trashed files can be previewed with [[https://github.com/junegunn/fzf][fzf]]
+- in case of a conflict between a new file and a restored trashed file, instead of exiting with error ([[https://github.com/andreafrancia/trash-cli][trash-cli]]'s behaviour), tra.sh will restore the file and turn the already existing file into a backup file with the suffix ~~conflict-with-restored-file~
+- all trashed files go to the user's trash
 
 ** Requirements
 
 These scripts require [[https://github.com/junegunn/fzf][fzf]].
+
+They are written on linux for zsh. Minor edits are likely to be necessary to run in bash or other shells (~$HOME/.local/share/Trash/files/*(D)~ to include dot files is zsh specific). ~date -d~ requires GNU date, which is not the default on macOS. On macOS, this expression will have to be changed slightly.
 
 ** Installation
 
@@ -28,14 +39,14 @@ You might want to set aliases (in your ~.zshrc~ file, or ~alias.zsh~ file, or ~.
 
 I personally use these aliases:
 
-*** List trashed files/directories
+**** List trashed files/directories
 
 - all
 #+BEGIN_src sh
 alias tls='zsh /home/marie/bin/my_bin/tra.sh/tra_ls.sh'
 #+END_src
 
-- only the files/folders trashed from the current directory
+- only those trashed from the current directory
 #+BEGIN_src sh
 alias tlsd='zsh /home/marie/bin/my_bin/tra.sh/tra_ls_dir.sh'
 #+END_src
@@ -45,35 +56,58 @@ alias tlsd='zsh /home/marie/bin/my_bin/tra.sh/tra_ls_dir.sh'
 alias tlsp='zsh /home/marie/bin/my_bin/tra.sh/tra_ls_p.sh'
 #+END_src
 
-- files/folders trashed from the current directory, with preview
+- only those trashed from the current directory, with preview
 #+BEGIN_src sh
 alias tlsdp='zsh /home/marie/bin/my_bin/tra.sh/tra_ls_dir_p.sh'
 #+END_src
 
-*** Restore trashed files/directories
+**** Restore trashed files/directories
 
+- any
 #+BEGIN_src sh
-# Restore any file/folder
 alias trs='zsh /home/marie/bin/my_bin/tra.sh/tra_rs.sh'
+#+END_src
 
-# Restore file/folder trashed from current directory
+- only those trashed from current directory
+#+BEGIN_src sh
 alias trsd='zsh /home/marie/bin/my_bin/tra.sh/tra_rs_dir.sh'
+#+END_src
 
-# Restore any file/folder with preview
+- any, with preview
+#+BEGIN_src sh
 alias trsp='zsh /home/marie/bin/my_bin/tra.sh/tra_rs_p.sh'
+#+END_src
 
-# Restore file/folder trashed from current directory with preview
+- only those trashed from current directory, with preview
+#+BEGIN_src sh
 alias trsdp='zsh /home/marie/bin/my_bin/tra.sh/tra_rs_dir_p.sh'
 #+END_src
 
-*** Clean trash
+**** Clean trash
 
+- permanently delete all files/directories in the trash
 #+BEGIN_src sh
-# Permanently delete all files/directories in the trash
 alias tcl='zsh /home/marie/bin/my_bin/tra.sh/tra_cl.sh'
+#+END_src
 
-# Only delete files/directories in the trash which are n days old or older
+- only delete files/directories in the trash which are n days old or older
+#+BEGIN_src sh
 alias tcld='zsh /home/marie/bin/my_bin/tra.sh/tra_cl_date.sh'
+# Add the number of days after this command
+# For example, in order to delete all files/directories 3 days old or older, type:
+# tcld 3
+#+END_src
+
+**** Delete specific files/directories
+
+- any
+#+BEGIN_src sh
+alias tcl='zsh /home/marie/bin/my_bin/tra.sh/tra_rm.sh'
+#+END_src
+
+- any, with preview
+#+BEGIN_src sh
+alias tcld='zsh /home/marie/bin/my_bin/tra.sh/tra_rm_p.sh'
 # Add the number of days after this command
 # For example, in order to delete all files/directories 3 days old or older, type:
 # tcld 3
