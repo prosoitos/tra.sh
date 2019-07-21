@@ -11,7 +11,7 @@ do
     elif [[ -f $i ]] ; then
 	dir_or_file=" "
     fi
-    # remove $HOME/.local/share/Trash/files/ from f
+
     basename=${i#$HOME/.local/share/Trash/files/}
 
     original_path=$(grep 'Path=' $info_path/$basename.trashinfo | sed 's/Path=//' | sed 's/%20/ /g') 2> /dev/null
@@ -19,8 +19,6 @@ do
 
     list=$(echo $deletion_time \| $basename \| $original_path \| $HOME/.local/share/Trash/files/$basename )
 
-    # echo $list | grep $dir
     echo $list | grep $dir
 
-    # remove the deletion time from the line selected by fzf
 done | sort -r | fzf -i -e +s --preview="source-highlight --failsafe -f esc256 -i {-1}"

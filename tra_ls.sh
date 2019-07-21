@@ -10,7 +10,7 @@ do
     elif [[ -f $i ]] ; then
 	dir_or_file=" "
     fi
-    # remove $HOME/.local/share/Trash/files/ from f
+
     basename=${i#$HOME/.local/share/Trash/files/}
 
     original_path=$(grep 'Path=' $info_path/$basename.trashinfo | sed 's/Path=//' | sed 's/%20/ /g') 2> /dev/null
