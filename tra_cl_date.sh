@@ -21,11 +21,6 @@ else
     trash_path=$topdir/.Trash
 fi
 
-# save stderr in file descriptor 3
-exec 3>&2
-# do not show stderr (prevents 'cannot remove xxx.trashinfo' error when the the metadata is missing)
-exec 2> /dev/null
-
 files_path=$trash_path/files
 info_path=$trash_path/info
 
@@ -37,12 +32,18 @@ do
 
     deletion_time=$(grep 'DeletionDate=' $info_path/$basename.trashinfo | sed 's/DeletionDate=//' | sed 's/T.*$//') 2> /dev/null
 
+    # save stderr in file descriptor 3
+    exec 3>&2
+    # do not show stderr (prevents 'cannot remove xxx.trashinfo' error when the the metadata is missing)
+    exec 2> /dev/null
+
     if expr "$deletion_time" "<=" "$cutoff" >/dev/null
     then
 	rm -r $files_path/$basename
 	rm -r $info_path/$basename.trashinfo
     fi
-done
 
-# restore stderr to prevent an exit 1
-exec 2>&3
+    # restore stderr to prevent an exit 1
+    exec 2>&3
+
+done
