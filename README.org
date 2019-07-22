@@ -2,7 +2,7 @@
 
 This project is heavily influenced by [[https://github.com/andreafrancia/trash-cli][trash-cli]], but it makes use of the power of [[https://github.com/junegunn/fzf][fzf]] and add other functionality making listing and restoring trashed files and directories easier.
 
-** Differences with trash-cli
+** Functionality and comparison with trash-cli
 
 As with [[https://github.com/andreafrancia/trash-cli][trash-cli]], tra.sh allows to:
 - send files and directories to trash
@@ -18,7 +18,6 @@ tra.sh differs from [[https://github.com/andreafrancia/trash-cli][trash-cli]] in
 - it is possible to list and restore only the files which were trashed from the current directory ([[https://github.com/andreafrancia/trash-cli][trash-cli]]'s behaviour), but it is also possible to list all files/directories in the trash and restore any of them from any directory
 - trashed files can be previewed with [[https://github.com/junegunn/fzf][fzf]]
 - in case of a conflict between a new file and a restored trashed file, instead of exiting with error ([[https://github.com/andreafrancia/trash-cli][trash-cli]]'s behaviour), tra.sh will restore the file and turn the already existing file into a backup file with the suffix ~~conflict-with-restored-file~
-- all trashed files go to the user's trash
 
 ** Requirements
 
