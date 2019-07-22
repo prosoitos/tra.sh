@@ -1,6 +1,6 @@
 [[https://user-images.githubusercontent.com/4634851/61600501-ce638580-abe5-11e9-9e7e-8b0ef6e19515.png]]
 
-This project is heavily influenced by [[https://github.com/andreafrancia/trash-cli][trash-cli]], but it makes use of the power of [[https://github.com/junegunn/fzf][fzf]] and add other functionality making listing and restoring trashed files and directories easier.
+This project is heavily influenced by [[https://github.com/andreafrancia/trash-cli][trash-cli]], but it makes use of the power of [[https://github.com/junegunn/fzf][fzf]] and add other functionality making listing and restoring trashed files and directories particularly easy.
 
 ** Functionality and comparison with trash-cli
 
@@ -35,7 +35,7 @@ Simply run any of the scripts from the command line (or from ranger, rofi, or yo
 
 You might want to set aliases (in your ~.zshrc~ file, or ~alias.zsh~ file, or ~.bashrc~ file, or wherever you normally define shell aliases). That way, you only have to call the alias to run the corresponding script.
 
-I personally use these aliases:
+Here are suggested aliases:
 
 **** Send files/directories to trash
 
