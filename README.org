@@ -1,4 +1,4 @@
-                                            [[https://user-images.githubusercontent.com/4634851/61599708-5e9ecc00-abe0-11e9-87a7-21e7a293a26a.png]]
+[[https://user-images.githubusercontent.com/4634851/61600501-ce638580-abe5-11e9-9e7e-8b0ef6e19515.png]]
 
 The idea for the behaviour of these scripts directly comes from [[https://github.com/andreafrancia/trash-cli][trash-cli]]. I really like trash-cli, but I wanted to make modifications to the way it lists and allows the restoration of files. In particular, I wanted to be able to see or restore my trashed files from any directory, not just the one from which the files were trashed. I also wanted to have a better system to find the files by sorting them chronologically and by using the power of [[https://github.com/junegunn/fzf][fzf]]. Because I do not use python, I decided to write shell scripts instead.
 
