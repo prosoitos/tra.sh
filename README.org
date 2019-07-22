@@ -25,7 +25,7 @@ tra.sh differs from [[https://github.com/andreafrancia/trash-cli][trash-cli]] in
 
 These scripts require [[https://github.com/junegunn/fzf][fzf]].
 
-They are written on linux for zsh. Minor edits are likely to be necessary to run in bash or other shells (~$HOME/.local/share/Trash/files/*(D)~ to include dot files is zsh specific). ~date -d~ requires GNU date, which is not the default on macOS. On macOS, this expression will have to be changed slightly.
+They are written on linux for zsh. Minor edits are needed for them to run in bash or other shells and on other OS (~$HOME/.local/share/Trash/files/*(D)~ to include dot files is zsh specific; ~date -d~ requires GNU date, which is not the default on macOS). I would welcome contributions to make the project portable to other shells and other OS.
 
 ** Installation
 
