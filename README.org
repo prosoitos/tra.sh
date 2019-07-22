@@ -1,4 +1,10 @@
-[[https://user-images.githubusercontent.com/4634851/61600501-ce638580-abe5-11e9-9e7e-8b0ef6e19515.png]]
+#+BEGIN_src html
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/4634851/61600501-ce638580-abe5-11e9-9e7e-8b0ef6e19515.png"/>
+</p>
+#+END_src
+
+# [[https://user-images.githubusercontent.com/4634851/61600501-ce638580-abe5-11e9-9e7e-8b0ef6e19515.png]]
 
 This project is heavily influenced by [[https://github.com/andreafrancia/trash-cli][trash-cli]], but it makes use of the power of [[https://github.com/junegunn/fzf][fzf]] and add other functionality making listing and restoring trashed files and directories particularly easy.
 
@@ -19,7 +25,7 @@ tra.sh differs from [[https://github.com/andreafrancia/trash-cli][trash-cli]] in
 - it is possible to list and restore only the files which were trashed from the current directory ([[https://github.com/andreafrancia/trash-cli][trash-cli]]'s behaviour), but it is also possible to list all files/directories in the trash and restore any of them from any directory
 - trashed files can be previewed with [[https://github.com/junegunn/fzf][fzf]]
 - in case of a conflict between a new file and a restored trashed file, instead of exiting with error ([[https://github.com/andreafrancia/trash-cli][trash-cli]]'s behaviour), tra.sh will restore the file and turn the already existing file into a backup file with the suffix ~~conflict-with-restored-file~
-- while trash-empty from [[https://github.com/andreafrancia/trash-cli][trash-cli]] empties all the trashes from all mount points (except for the root trash which requires ~sudo trash-empty~), tra.sh will empty only the trash of the current mount point. This prevents the accidental deletion of files in the trash of an external drive or the deletion of files in the user's trash when cleaning an external drive's trash
+- while [[https://github.com/andreafrancia/trash-cli][trash-cli]]'s ~trash-empty~ delete files from all the trashes of all mount points (except for the root trash which requires ~sudo trash-empty~), tra.sh will empty only the trash of the current mount point. This prevents the accidental deletion of files in the trash of an external drive when cleaning the user's trash, or reciprocally, the deletion of files in the user's trash when cleaning an external drive's trash
 
 ** Requirements
 
@@ -104,17 +110,14 @@ alias tcld='zsh <path-to-tra.sh>/tra_cl_date.sh'
 # tcld 3
 #+END_src
 
-**** Delete specific files/directories
+# - delete files/directories matching pattern
+# #+BEGIN_src sh
+# alias tclp='zsh <path-to-tra.sh>/tra_cl_pattern.sh'
+# #+END_src
 
-- any
-#+BEGIN_src sh
-alias tcl='zsh <path-to-tra.sh>/tra_rm.sh'
-#+END_src
-
-- any, with preview
-#+BEGIN_src sh
-alias tcld='zsh <path-to-tra.sh>/tra_rm_p.sh'
-# Add the number of days after this command
-# For example, in order to delete all files/directories 3 days old or older, type:
-# tcld 3
-#+END_src
+# #+BEGIN_src sh
+# alias tcld='zsh <path-to-tra.sh>/tra_rm_p.sh'
+# # Add the number of days after this command
+# # For example, in order to delete all files/directories 3 days old or older, type:
+# # tcld 3
+# #+END_src
