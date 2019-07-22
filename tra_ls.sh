@@ -5,9 +5,10 @@ info_path=$HOME/.local/share/Trash/info
 
 for i in $HOME/.local/share/Trash/files/*(D)
 do
-    if [[ -d $i ]] ; then
+    if [[ -d $i ]]
+    then
 	dir_or_file="D"
-    elif [[ -f $i ]] ; then
+    else
 	dir_or_file=" "
     fi
 
