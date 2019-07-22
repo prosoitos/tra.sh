@@ -1,4 +1,17 @@
 #!/bin/zsh
+#
+#		   /
+#		   |_|  >_
+#
+#     https://marie-helene-burle.netlify.com
+#     https://github.com/prosoitos
+#     https://twitter.com/MHBurle
+#     msb2@sfu.ca
+#
+
+# This script needs to be called followed by an integer
+# It empties the trash up to (and including) <integer> days ago
+
 
 files_path=$HOME/.local/share/Trash/files
 info_path=$HOME/.local/share/Trash/info

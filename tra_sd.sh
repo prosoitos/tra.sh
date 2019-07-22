@@ -1,4 +1,18 @@
 #!/bin/zsh
+#
+#		   /
+#		   |_|  >_
+#
+#     https://marie-helene-burle.netlify.com
+#     https://github.com/prosoitos
+#     https://twitter.com/MHBurle
+#     msb2@sfu.ca
+#
+
+# This script sends a file/directory to trash
+# (creating the trash if necessary)
+# and stores the metadata necessary to restore the file/directory
+
 
 topdir=$(findmnt -T . -n -o TARGET)
 

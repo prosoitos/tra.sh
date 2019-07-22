@@ -1,4 +1,16 @@
 #!/bin/zsh
+#
+#		   /
+#		   |_|  >_
+#
+#     https://marie-helene-burle.netlify.com
+#     https://github.com/prosoitos
+#     https://twitter.com/MHBurle
+#     msb2@sfu.ca
+#
+
+# This script restores a file/directory, with preview
+
 
 files_path=$HOME/.local/share/Trash/files
 info_path=$HOME/.local/share/Trash/info

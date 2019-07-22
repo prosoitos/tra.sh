@@ -1,4 +1,16 @@
 #!/bin/zsh
+#
+#		   /
+#		   |_|  >_
+#
+#     https://marie-helene-burle.netlify.com
+#     https://github.com/prosoitos
+#     https://twitter.com/MHBurle
+#     msb2@sfu.ca
+#
+
+# This script empties the trash
+
 
 # save stderr in file descriptor 3
 exec 3>&2
