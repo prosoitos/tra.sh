@@ -9,6 +9,7 @@ As with [[https://github.com/andreafrancia/trash-cli][trash-cli]], tra.sh allows
 - see the content of the trash easily
 - restore these files/directories easily
 - empty the trash based on cutoff date, pattern, etc. or fully clean it
+- works from any mount point, for any user, and with sudo
 
 tra.sh differs from [[https://github.com/andreafrancia/trash-cli][trash-cli]] in the following:
 - tra.sh uses [[https://github.com/junegunn/fzf][fzf]] to find trashed files/directories very easily from pattern, name, path, or date
@@ -18,6 +19,7 @@ tra.sh differs from [[https://github.com/andreafrancia/trash-cli][trash-cli]] in
 - it is possible to list and restore only the files which were trashed from the current directory ([[https://github.com/andreafrancia/trash-cli][trash-cli]]'s behaviour), but it is also possible to list all files/directories in the trash and restore any of them from any directory
 - trashed files can be previewed with [[https://github.com/junegunn/fzf][fzf]]
 - in case of a conflict between a new file and a restored trashed file, instead of exiting with error ([[https://github.com/andreafrancia/trash-cli][trash-cli]]'s behaviour), tra.sh will restore the file and turn the already existing file into a backup file with the suffix ~~conflict-with-restored-file~
+- while trash-empty from [[https://github.com/andreafrancia/trash-cli][trash-cli]] empties all the trashes from all mount points (except for the root trash which requires ~sudo trash-empty~), tra.sh will empty only the trash of the current mount point. This prevents the accidental deletion of files in the trash of an external drive or the deletion of files in the user's trash when cleaning an external drive's trash
 
 ** Requirements
 
