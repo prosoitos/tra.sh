@@ -1,10 +1,4 @@
-#+BEGIN_export html
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/4634851/61600501-ce638580-abe5-11e9-9e7e-8b0ef6e19515.png"/>
-</p>
-#+END_export
-
-# [[https://user-images.githubusercontent.com/4634851/61600501-ce638580-abe5-11e9-9e7e-8b0ef6e19515.png]]
+[[https://user-images.githubusercontent.com/4634851/61600501-ce638580-abe5-11e9-9e7e-8b0ef6e19515.png]]
 
 This project is heavily influenced by [[https://github.com/andreafrancia/trash-cli][trash-cli]], but it makes use of the power of [[https://github.com/junegunn/fzf][fzf]] and add other functionality making listing and restoring trashed files and directories particularly easy.
 
