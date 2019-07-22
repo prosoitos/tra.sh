@@ -16,9 +16,9 @@ topdir=$(findmnt -T . -n -o TARGET)
 
 if [[ $topdir = /home ]]
 then
-    trashpath=$HOME/.local/share/Trash/
+    trash_path=$HOME/.local/share/Trash/
 else
-    trashpath=$topdir/.Trash
+    trash_path=$topdir/.Trash
 fi
 
 # save stderr in file descriptor 3
@@ -26,8 +26,8 @@ exec 3>&2
 # do not show stderr (prevents 'cannot remove xxx.trashinfo' error when the the metadata is missing)
 exec 2> /dev/null
 
-files_path=$trashpath/files
-info_path=$trashpath/info
+files_path=$trash_path/files
+info_path=$trash_path/info
 
 cutoff=$(date +%F -d "$1 days ago")
 

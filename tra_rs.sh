@@ -7,17 +7,24 @@
 #     https://github.com/prosoitos
 #     https://twitter.com/MHBurle
 #     msb2@sfu.ca
-#
 
 # This script restores a file/directory from the trash
 
+topdir=$(findmnt -T . -n -o TARGET)
 
-files_path=$HOME/.local/share/Trash/files
-info_path=$HOME/.local/share/Trash/info
+if [[ $topdir = /home ]]
+then
+    trash_path=$HOME/.local/share/Trash/
+else
+    trash_path=$topdir/.Trash
+fi
+
+files_path=$trash_path/files
+info_path=$trash_path/info
 
 file=$(
     # *(D) instead of * to also include the dot files
-    for i in $HOME/.local/share/Trash/files/*(D)
+    for i in $files_path/*(D)
     do
 	if [[ -d $i ]]
 	then
@@ -26,7 +33,7 @@ file=$(
 	    dir_or_file=" "
 	fi
 	# remove $HOME/.local/share/Trash/files/ from f
-	basename=${i#$HOME/.local/share/Trash/files/}
+	basename=${i#$files_path/}
 
 	# 2> /dev/null so as not to get error messages if the .trashinfo file is missing
 	original_path=$(grep 'Path=' $info_path/$basename.trashinfo | sed 's/Path=//' | sed 's/%20/ /g') 2> /dev/null
