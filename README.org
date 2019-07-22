@@ -1,8 +1,8 @@
-#+BEGIN_src html
+#+BEGIN_export html
 <p align="center">
   <img src="https://user-images.githubusercontent.com/4634851/61600501-ce638580-abe5-11e9-9e7e-8b0ef6e19515.png"/>
 </p>
-#+END_src
+#+END_export
 
 # [[https://user-images.githubusercontent.com/4634851/61600501-ce638580-abe5-11e9-9e7e-8b0ef6e19515.png]]
 
