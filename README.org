@@ -1,6 +1,6 @@
 [[https://user-images.githubusercontent.com/4634851/61600501-ce638580-abe5-11e9-9e7e-8b0ef6e19515.png]]
 
-The idea for the behaviour of these scripts directly comes from [[https://github.com/andreafrancia/trash-cli][trash-cli]]. I really like trash-cli, but I wanted to make modifications to the way it lists and allows the restoration of files. In particular, I wanted to be able to see or restore my trashed files from any directory, not just the one from which the files were trashed. I also wanted to have a better system to find the files by sorting them chronologically and by using the power of [[https://github.com/junegunn/fzf][fzf]]. Because I do not use python, I decided to write shell scripts instead.
+This project is heavily influenced by [[https://github.com/andreafrancia/trash-cli][trash-cli]], but it makes use of the power of [[https://github.com/junegunn/fzf][fzf]] and add other functionality making listing and restoring trashed files and directories easier.
 
 ** Differences with trash-cli
 
@@ -38,60 +38,66 @@ You might want to set aliases (in your ~.zshrc~ file, or ~alias.zsh~ file, or ~.
 
 I personally use these aliases:
 
+**** Send files/directories to trash
+
+#+BEGIN_src sh
+alias t='zsh <path-to-tra.sh>/tra_sd.sh'
+#+END_src
+
 **** List trashed files/directories
 
 - all
 #+BEGIN_src sh
-alias tls='zsh /home/marie/bin/my_bin/tra.sh/tra_ls.sh'
+alias tls='zsh <path-to-tra.sh>/tra_ls.sh'
 #+END_src
 
 - only those trashed from the current directory
 #+BEGIN_src sh
-alias tlsd='zsh /home/marie/bin/my_bin/tra.sh/tra_ls_dir.sh'
+alias tlsd='zsh <path-to-tra.sh>/tra_ls_dir.sh'
 #+END_src
 
 - all, with preview
 #+BEGIN_src sh
-alias tlsp='zsh /home/marie/bin/my_bin/tra.sh/tra_ls_p.sh'
+alias tlsp='zsh <path-to-tra.sh>/tra_ls_p.sh'
 #+END_src
 
 - only those trashed from the current directory, with preview
 #+BEGIN_src sh
-alias tlsdp='zsh /home/marie/bin/my_bin/tra.sh/tra_ls_dir_p.sh'
+alias tlsdp='zsh <path-to-tra.sh>/tra_ls_dir_p.sh'
 #+END_src
 
 **** Restore trashed files/directories
 
 - any
 #+BEGIN_src sh
-alias trs='zsh /home/marie/bin/my_bin/tra.sh/tra_rs.sh'
+alias trs='zsh <path-to-tra.sh>/tra_rs.sh'
 #+END_src
 
 - only those trashed from current directory
 #+BEGIN_src sh
-alias trsd='zsh /home/marie/bin/my_bin/tra.sh/tra_rs_dir.sh'
+alias trsd='zsh <path-to-tra.sh>/tra_rs_dir.sh'
 #+END_src
 
 - any, with preview
 #+BEGIN_src sh
-alias trsp='zsh /home/marie/bin/my_bin/tra.sh/tra_rs_p.sh'
+alias trsp='zsh <path-to-tra.sh>/tra_rs_p.sh'
 #+END_src
 
 - only those trashed from current directory, with preview
 #+BEGIN_src sh
-alias trsdp='zsh /home/marie/bin/my_bin/tra.sh/tra_rs_dir_p.sh'
+alias trsdp='zsh <path-to-tra.sh>/tra_rs_dir_p.sh'
 #+END_src
 
 **** Clean trash
 
 - permanently delete all files/directories in the trash
 #+BEGIN_src sh
-alias tcl='zsh /home/marie/bin/my_bin/tra.sh/tra_cl.sh'
+alias tcl='zsh <path-to-tra.sh>/tra_cl.sh'
 #+END_src
 
 - only delete files/directories in the trash which are n days old or older
 #+BEGIN_src sh
-alias tcld='zsh /home/marie/bin/my_bin/tra.sh/tra_cl_date.sh'
+alias tcld='zsh <path-to-tra.sh>/tra_cl_date.sh'
 # Add the number of days after this command
 # For example, in order to delete all files/directories 3 days old or older, type:
 # tcld 3
@@ -101,12 +107,12 @@ alias tcld='zsh /home/marie/bin/my_bin/tra.sh/tra_cl_date.sh'
 
 - any
 #+BEGIN_src sh
-alias tcl='zsh /home/marie/bin/my_bin/tra.sh/tra_rm.sh'
+alias tcl='zsh <path-to-tra.sh>/tra_rm.sh'
 #+END_src
 
 - any, with preview
 #+BEGIN_src sh
-alias tcld='zsh /home/marie/bin/my_bin/tra.sh/tra_rm_p.sh'
+alias tcld='zsh <path-to-tra.sh>/tra_rm_p.sh'
 # Add the number of days after this command
 # For example, in order to delete all files/directories 3 days old or older, type:
 # tcld 3
