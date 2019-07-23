@@ -8,7 +8,7 @@ As with [[https://github.com/andreafrancia/trash-cli][trash-cli]], tra.sh allows
 - send files and directories to trash
 - see the content of the trash easily
 - restore these files/directories easily
-- empty the trash based on cutoff date, pattern, etc. or fully clean it
+- empty the trash based on cutoff date, pattern, etc. or fully empty it
 - works from any mount point, for any user, and with sudo
 
 tra.sh differs from [[https://github.com/andreafrancia/trash-cli][trash-cli]] in the following:
@@ -20,6 +20,7 @@ tra.sh differs from [[https://github.com/andreafrancia/trash-cli][trash-cli]] in
 - trashed files can be previewed with [[https://github.com/junegunn/fzf][fzf]] with syntax highlighting
 - in case of a conflict between a new file and a restored trashed file, instead of exiting with error ([[https://github.com/andreafrancia/trash-cli][trash-cli]]'s behaviour), tra.sh will restore the file and turn the already existing file into a backup file with the suffix ~~conflict-with-restored-file~
 - while [[https://github.com/andreafrancia/trash-cli][trash-cli]]'s ~trash-empty~ delete files from all the trashes of all mount points (except for the root trash which requires ~sudo trash-empty~), tra.sh will empty only the trash of the current mount point. This prevents the accidental deletion of files in the trash of an external drive when cleaning the user's trash, or reciprocally, the deletion of files in the user's trash when cleaning an external drive's trash
+- multiple files can be selected to be restored or cleaned from the trash at once
 
 ** Requirements
 
@@ -68,6 +69,8 @@ alias tlsdp='zsh <path-to-tra.sh>/tra_ls_dir_p.sh'
 #+END_src
 
 **** Restore trashed files/directories
+
+Multiple files can be selected with the <tab> key in the [[https://github.com/junegunn/fzf][fzf]] list to be restored at once.
 
 - any
 #+BEGIN_src sh
