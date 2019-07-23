@@ -17,7 +17,7 @@ tra.sh differs from [[https://github.com/andreafrancia/trash-cli][trash-cli]] in
 - trashed directories are marked with "D" to distinguish them from trashed files
 - all files in ~$HOME/.local/share/Trash/files~ are listed, even if their meta data in ~$HOME/.local/share/Trash/info~ is missing for whatever reason
 - it is possible to list and restore only the files which were trashed from the current directory ([[https://github.com/andreafrancia/trash-cli][trash-cli]]'s behaviour), but it is also possible to list all files/directories in the trash and restore any of them from any directory
-- trashed files can be previewed with [[https://github.com/junegunn/fzf][fzf]]
+- trashed files can be previewed with [[https://github.com/junegunn/fzf][fzf]] with syntax highlighting
 - in case of a conflict between a new file and a restored trashed file, instead of exiting with error ([[https://github.com/andreafrancia/trash-cli][trash-cli]]'s behaviour), tra.sh will restore the file and turn the already existing file into a backup file with the suffix ~~conflict-with-restored-file~
 - while [[https://github.com/andreafrancia/trash-cli][trash-cli]]'s ~trash-empty~ delete files from all the trashes of all mount points (except for the root trash which requires ~sudo trash-empty~), tra.sh will empty only the trash of the current mount point. This prevents the accidental deletion of files in the trash of an external drive when cleaning the user's trash, or reciprocally, the deletion of files in the user's trash when cleaning an external drive's trash
 
