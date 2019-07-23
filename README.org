@@ -4,7 +4,7 @@ This project is heavily influenced by [[https://github.com/andreafrancia/trash-c
 
 ** Functionality and comparison with trash-cli
 
-*** As with [[https://github.com/andreafrancia/trash-cli][trash-cli]], tra.sh:
+*** As with [[https://github.com/andreafrancia/trash-cli][trash-cli]], *tra.sh*:
 
 - works from any mount point and with root privilege if necessary
 - is compliant with the [[https://specifications.freedesktop.org/trash-spec/trashspec-1.0.html][FreeDesktop.org Trash specification]]
@@ -15,7 +15,7 @@ This project is heavily influenced by [[https://github.com/andreafrancia/trash-c
    + restore trashed files/directories
    + empty the trash fully, or selectively based on cutoff date, pattern, specific files
 
-*** tra.sh differs from [[https://github.com/andreafrancia/trash-cli][trash-cli]] in the following added functionality:
+*** *tra.sh* differs from [[https://github.com/andreafrancia/trash-cli][trash-cli]] in the following added functionality:
 
 - [[https://github.com/junegunn/fzf][fzf]] allows to find trashed files/directories very easily from pattern, name, path, or date
 - files are listed chronologically (in reverse chronological order so that the last deleted file/directory is the easiest to access)
@@ -23,10 +23,10 @@ This project is heavily influenced by [[https://github.com/andreafrancia/trash-c
 - all files in the trash are listed, even if their meta data is missing for whatever reason
 - it is possible to list and restore only the files which were trashed from the current directory ([[https://github.com/andreafrancia/trash-cli][trash-cli]]'s behaviour), but it is also possible to list all files/directories in the trash and restore any of them from any directory
 - trashed files can be previewed with [[https://github.com/junegunn/fzf][fzf]] with syntax highlighting
-- in case of a conflict between a new file and a restored trashed file, instead of exiting with error ([[https://github.com/andreafrancia/trash-cli][trash-cli]]'s behaviour), tra.sh will restore the file and turn the already existing file into a backup file with the suffix ~\~conflict-with-restored-file~
-- while [[https://github.com/andreafrancia/trash-cli][trash-cli]]'s ~trash-empty~ delete files from all the trashes of all mount points (except for the root trash which requires ~sudo trash-empty~), tra.sh will empty only the trash of the current mount point. This prevents the accidental deletion of files in the trash of an external drive when cleaning the user's trash, or reciprocally, the deletion of files in the user's trash when cleaning an external drive's trash
+- in case of a conflict between a new file and a restored trashed file, instead of exiting with error ([[https://github.com/andreafrancia/trash-cli][trash-cli]]'s behaviour), *tra.sh* will restore the file and turn the already existing file into a backup file with the suffix ~ ~conflict-with-restored-file~
+- while [[https://github.com/andreafrancia/trash-cli][trash-cli]]'s ~trash-empty~ delete files from all the trashes of all mount points (except for the root trash which requires ~sudo trash-empty~), *tra.sh* will empty only the trash of the current mount point. This prevents the accidental deletion of files in the trash of an external drive when cleaning the user's trash, or reciprocally, the deletion of files in the user's trash when cleaning an external drive's trash
 - multiple files/directories can be selected to be restored or cleaned from the trash at once
-- [[https://github.com/andreafrancia/trash-cli][trash-cli]]'s ~trash-rm~ allows to remove all files/directories matching a pattern from the trash. But you have to trust that your pattern is correct as you do not get to see what will get removed (or not). tra.sh, thanks to [[https://github.com/junegunn/fzf][fzf]], allows to see what gets selected by a certain pattern before removing the selection from the trash
+- [[https://github.com/andreafrancia/trash-cli][trash-cli]]'s ~trash-rm~ allows to remove all files/directories matching a pattern from the trash. But you have to trust that your pattern is correct as you do not get to see what will get removed (or not). *tra.sh*, thanks to [[https://github.com/junegunn/fzf][fzf]], allows to see what gets selected by a certain pattern before removing the selection from the trash
 - files/directories matching a pattern can be restored (with the on-the-fly feed-back of [[https://github.com/junegunn/fzf][fzf]] described above)
 
 ** Requirements
@@ -126,4 +126,4 @@ alias tcd='zsh <path-to-tra.sh>/tra_cl_date.sh'
 alias trm='zsh <path-to-tra.sh>/tra_rm.sh'
 #+END_src
 
-To remove files/directories matching pattern from trash, type the pattern in the [[https://github.com/junegunn/fzf][fzf]] search, then select all with the ~ ~ key (the key can be customized in the ~tra_rm.sh~ script).
+To remove files/directories matching pattern from trash, type the pattern in the [[https://github.com/junegunn/fzf][fzf]] search, then ~select all~ with the ~ ~ key (the key can be customized in the ~tra_rm.sh~ script).
