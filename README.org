@@ -80,7 +80,7 @@ alias tlb='zsh <path-to-tra.sh>/tra_ls_dir_p.sh' # b for 'both' directory and pr
 
 **** Restore trashed files/directories
 
-/Multiple files can be selected with the ~<tab>~ key in the [[https://github.com/junegunn/fzf][fzf]] drop-down list./
+/Multiple files can be selected/unselected with the <tab> key (and <shift-tab> to move upward) in the [[https://github.com/junegunn/fzf][fzf]] drop-down list./
 
 - any
 #+BEGIN_src sh
@@ -119,11 +119,11 @@ alias tcd='zsh <path-to-tra.sh>/tra_cl_date.sh'
 
 **** Remove items from trash selectively
 
-/Multiple files can be selected with the ~<tab>~ key in the [[https://github.com/junegunn/fzf][fzf]] drop-down list./
+/Multiple files can be selected/unselected with the <tab> key (and <shift-tab> to move upward) in the [[https://github.com/junegunn/fzf][fzf]] drop-down list./
 
 - remove files/directories from trash
 #+BEGIN_src sh
 alias trm='zsh <path-to-tra.sh>/tra_rm.sh'
 #+END_src
 
-To remove files/directories matching pattern from trash, type the pattern in the [[https://github.com/junegunn/fzf][fzf]] search, then ~select all~ with the ~ ~ key (the key can be customized in the ~tra_rm.sh~ script).
+To remove files/directories matching pattern from trash, type the pattern in the [[https://github.com/junegunn/fzf][fzf]] search, then ~select all~ (with the <ctl-tab> keys—the keys can be customized in the ~tra_rm.sh~ script if needed) or select only the wanted ones (with the <tab> key).
