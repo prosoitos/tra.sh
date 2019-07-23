@@ -16,7 +16,7 @@ topdir=$(findmnt -T . -n -o TARGET)
 
 if [[ $topdir = /home ]]
 then
-    trash_path=$HOME/.local/share/Trash/
+    trash_path=$HOME/.local/share/Trash
 else
     trash_path=$topdir/.Trash
 fi
