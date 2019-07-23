@@ -32,7 +32,8 @@ file=$(
 	else
 	    dir_or_file=" "
 	fi
-	# remove $HOME/.local/share/Trash/files/ from f
+
+	# remove $files_path/ from i
 	basename=${i#$files_path/}
 
 	# 2> /dev/null so as not to get error messages if the .trashinfo file is missing
@@ -43,14 +44,13 @@ file=$(
 
 	echo $list | grep $dir
 
-	# remove the deletion time from the line selected by fzf
     done | sort -r | fzf -i -e +s --preview="source-highlight --failsafe -f esc256 -i {-1}"
     )
 
 # select $basename from selection
-basename_file=$(echo $file | sed -E 's/.* \| (.*)/\1/')
+basename_file=$(echo $file | sed -E 's/.* [D ] (.*) \| .* \| .*/\1/')
 
-original_path_file=$(echo $file | sed -E 's/(.*) \| .*/\1/')
+original_path_file=$(echo $file | sed -E 's/.* \| (.*) \| .*/\1/')
 
 # select only the base part of $original_path (removing basename from it)
 # original_basepath=$(echo $file | sed -E 's/^(.*)\/.* \| .*/\1/')
