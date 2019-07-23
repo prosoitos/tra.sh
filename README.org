@@ -4,18 +4,23 @@ This project is heavily influenced by [[https://github.com/andreafrancia/trash-c
 
 ** Functionality and comparison with trash-cli
 
-As with [[https://github.com/andreafrancia/trash-cli][trash-cli]], tra.sh allows to:
-- send files and directories to trash
-- see the content of the trash easily
-- restore these files/directories easily
-- empty the trash based on cutoff date, pattern, etc. or fully empty it
-- works from any mount point, for any user, and with sudo
+As with [[https://github.com/andreafrancia/trash-cli][trash-cli]], tra.sh:
+- works:
+   + from any mount point
+   + with root privilege if necessary
+- is compliant with the [[https://specifications.freedesktop.org/trash-spec/trashspec-1.0.html][FreeDesktop.org Trash specification]]
+- trash directories are automatically created when required
+- allows to:
+   + send files/directories to trash
+   + inspect the trash content
+   + restore trashed files/directories
+   + empty the trash fully, or selectively based on cutoff date, pattern, specific files
 
-tra.sh differs from [[https://github.com/andreafrancia/trash-cli][trash-cli]] in the following:
-- tra.sh uses [[https://github.com/junegunn/fzf][fzf]] to find trashed files/directories very easily from pattern, name, path, or date
+tra.sh differs from [[https://github.com/andreafrancia/trash-cli][trash-cli]] in the following added functionality:
+- [[https://github.com/junegunn/fzf][fzf]] allows to find trashed files/directories very easily from pattern, name, path, or date
 - files are listed chronologically (in reverse chronological order so that the last deleted file/directory is the easiest to access)
-- trashed directories are marked with "D" to distinguish them from trashed files
-- all files in ~$HOME/.local/share/Trash/files~ are listed, even if their meta data in ~$HOME/.local/share/Trash/info~ is missing for whatever reason
+- trashed directories are identified with a "D" to distinguish them from trashed files
+- all files in the trash are listed, even if their meta data is missing for whatever reason
 - it is possible to list and restore only the files which were trashed from the current directory ([[https://github.com/andreafrancia/trash-cli][trash-cli]]'s behaviour), but it is also possible to list all files/directories in the trash and restore any of them from any directory
 - trashed files can be previewed with [[https://github.com/junegunn/fzf][fzf]] with syntax highlighting
 - in case of a conflict between a new file and a restored trashed file, instead of exiting with error ([[https://github.com/andreafrancia/trash-cli][trash-cli]]'s behaviour), tra.sh will restore the file and turn the already existing file into a backup file with the suffix ~~conflict-with-restored-file~
@@ -43,7 +48,7 @@ Here are suggested aliases:
 **** Send files/directories to trash
 
 #+BEGIN_src sh
-alias t='zsh <path-to-tra.sh>/tra_sd.sh'
+alias ts='zsh <path-to-tra.sh>/tra_sd.sh'
 #+END_src
 
 **** List trashed files/directories
@@ -55,22 +60,22 @@ alias tls='zsh <path-to-tra.sh>/tra_ls.sh'
 
 - only those trashed from the current directory
 #+BEGIN_src sh
-alias tlsd='zsh <path-to-tra.sh>/tra_ls_dir.sh'
+alias tld='zsh <path-to-tra.sh>/tra_ls_dir.sh'
 #+END_src
 
 - all, with preview
 #+BEGIN_src sh
-alias tlsp='zsh <path-to-tra.sh>/tra_ls_p.sh'
+alias tlp='zsh <path-to-tra.sh>/tra_ls_p.sh'
 #+END_src
 
 - only those trashed from the current directory, with preview
 #+BEGIN_src sh
-alias tlsdp='zsh <path-to-tra.sh>/tra_ls_dir_p.sh'
+alias tlb='zsh <path-to-tra.sh>/tra_ls_dir_p.sh' # b for 'both' directory and preview
 #+END_src
 
 **** Restore trashed files/directories
 
-Multiple files can be selected with the <tab> key in the [[https://github.com/junegunn/fzf][fzf]] list to be restored at once.
+/Multiple files can be selected with the <tab> key in the [[https://github.com/junegunn/fzf][fzf]] drop-down list./
 
 - any
 #+BEGIN_src sh
@@ -79,17 +84,17 @@ alias trs='zsh <path-to-tra.sh>/tra_rs.sh'
 
 - only those trashed from current directory
 #+BEGIN_src sh
-alias trsd='zsh <path-to-tra.sh>/tra_rs_dir.sh'
+alias trd='zsh <path-to-tra.sh>/tra_rs_dir.sh'
 #+END_src
 
 - any, with preview
 #+BEGIN_src sh
-alias trsp='zsh <path-to-tra.sh>/tra_rs_p.sh'
+alias trp='zsh <path-to-tra.sh>/tra_rs_p.sh'
 #+END_src
 
 - only those trashed from current directory, with preview
 #+BEGIN_src sh
-alias trsdp='zsh <path-to-tra.sh>/tra_rs_dir_p.sh'
+alias trb='zsh <path-to-tra.sh>/tra_rs_dir_p.sh' # b for 'both' directory and preview
 #+END_src
 
 **** Clean trash
@@ -101,20 +106,22 @@ alias tcl='zsh <path-to-tra.sh>/tra_cl.sh'
 
 - only delete files/directories in the trash which are n days old or older
 #+BEGIN_src sh
-alias tcld='zsh <path-to-tra.sh>/tra_cl_date.sh'
+alias tcd='zsh <path-to-tra.sh>/tra_cl_date.sh'
 # Add the number of days after this command
 # For example, in order to delete all files/directories 3 days old or older, type:
 # tcld 3
 #+END_src
 
-# - delete files/directories matching pattern
+**** Remove items from trash selectively
+
+/Multiple files can be selected with the <tab> key in the [[https://github.com/junegunn/fzf][fzf]] drop-down list./
+
+# - remove files/directories
 # #+BEGIN_src sh
-# alias tclp='zsh <path-to-tra.sh>/tra_cl_pattern.sh'
+# alias trm='zsh <path-to-tra.sh>/tra_cl_pattern.sh'
 # #+END_src
 
+# - remove files/directories matching pattern
 # #+BEGIN_src sh
-# alias tcld='zsh <path-to-tra.sh>/tra_rm_p.sh'
-# # Add the number of days after this command
-# # For example, in order to delete all files/directories 3 days old or older, type:
-# # tcld 3
+# alias trp='zsh <path-to-tra.sh>/tra_cl_pattern.sh'
 # #+END_src
