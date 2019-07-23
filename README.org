@@ -33,9 +33,12 @@ This project is heavily influenced by [[https://github.com/andreafrancia/trash-c
 
 These scripts require [[https://github.com/junegunn/fzf][fzf]].
 
-They are written on linux for zsh.\\
-Known incompatibilities with other shells: the ~/*(D)~ notation (to include dot files) is zsh specific.\\
-Known incompatibilities with other OS: ~date -d~ requires GNU date, which is not the default on macOS.\\
+They are written on linux for zsh.
+
+Known incompatibilities with other shells: the ~/*(D)~ notation (to include dot files) is zsh specific.
+
+Known incompatibilities with other OS: ~date -d~ requires GNU date, which is not the default on macOS.
+
 I would welcome contributions to make the project portable to other shells and other OS.
 
 ** Installation
