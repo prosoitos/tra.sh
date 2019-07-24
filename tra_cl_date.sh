@@ -39,8 +39,8 @@ do
 
     if expr "$deletion_time" "<=" "$cutoff" >/dev/null
     then
-	rm -r $files_path/$basename
-	rm -r $info_path/$basename.trashinfo
+	rm -r -f $files_path/$basename
+	rm -r -f $info_path/$basename.trashinfo
     fi
 
     # restore stderr to prevent an exit 1
