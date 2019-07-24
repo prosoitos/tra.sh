@@ -17,7 +17,7 @@ This project is heavily influenced by [[https://github.com/andreafrancia/trash-c
 
 *** *tra.sh* differs from trash-cli in the following added functionality:
 
-- fzf allows to find trashed files/directories very easily from pattern, name, path, or date
+- fzf allows incremental search to find trashed files/directories very easily from pattern, name, path, or date
 - files are listed chronologically (in reverse chronological order so that the last deleted file/directory is the easiest to access)
 - trashed directories are identified with a "D" to distinguish them from trashed files
 - all files in the trash are listed, even if their meta data is missing for whatever reason
@@ -123,7 +123,7 @@ alias tlb='zsh <path-to-tra.sh>/tra_ls_dir_p.sh' # b for 'both' directory and pr
 
 /Multiple files can be selected/unselected with the <tab> key (and <shift-tab> to move upward) in the fzf drop-down list./
 
-/To restore files/directories matching a pattern, type the pattern in the fzf search, then select all (with the <ctrl-o> keys—the keys can be customized in the tra_rm.sh script if needed) or select only the wanted ones (with the <tab> key). You can unselect all by pressing <ctrl-o> again. The pattern can be based on the path, the file name, and/or the deletion date./
+/To restore files/directories matching a pattern, type the pattern in the fzf search, then select/unselect all with the <ctrl-o> key (the key can be customized in the tra_rs scripts if needed). The pattern can be based on the path, the file name, and/or the deletion date./
 
 
 - any
@@ -148,9 +148,8 @@ alias trb='zsh <path-to-tra.sh>/tra_rs_dir_p.sh' # b for 'both' directory and pr
 
 **** Delete trashed files/directories
 
-/Multiple files can be selected/unselected with the <tab> key (and <shift-tab> to move upward) in the fzf drop-down list./
-
-/To delete files/directories matching a pattern from the trash, type the pattern in the fzf search, then select all (with the <ctrl-o> keys—the keys can be customized in the tra_rm.sh script if needed) or select only the wanted ones (with the <tab> key). You can unselect all by pressing <ctrl-o> again. The pattern can be based on the path, the file name, and/or the deletion date./
+/As with the restore scripts, multiple files can be selected/unselected with the <tab> key./
+/And to select files/directories matching a pattern for deletion, the pattern can be searched with fzf and all files selected/unselected with the <ctrl-o> key./
 
 - any
 #+BEGIN_src sh
