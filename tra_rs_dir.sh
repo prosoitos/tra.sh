@@ -44,7 +44,7 @@ do
     echo $list | grep $dir
 
     # remove the deletion time from the line selected by fzf
-done | sort -r | fzf -i -e +s -m --bind=ctrl-tab:select-all | sed -E 's/.* [D ] (.* \| .*)/\1/' |
+done | sort -r | fzf -i -e +s -m --bind=ctrl-o:toggle-all | sed -E 's/.* [D ] (.* \| .*)/\1/' |
 
     while read line
 
