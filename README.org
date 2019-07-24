@@ -87,7 +87,7 @@ Below are suggested aliases and a summary table of all the commands using those 
 Notes:
 - "both" stands for "both from current directory and with preview"
 - Replace ~<n>~ by an integer representing the number of days
-- Multi selections are possible with <tab>, ~select all~ with <ctrl-tab>
+- Multi selections are possible with <tab>, ~select all~ with <ctrl-o>
 
 *** Aliases
 
@@ -147,7 +147,7 @@ alias trb='zsh <path-to-tra.sh>/tra_rs_dir_p.sh' # b for 'both' directory and pr
 
 /Multiple files can be selected/unselected with the <tab> key (and <shift-tab> to move upward) in the fzf drop-down list./
 
-/To delete files/directories matching pattern from trash, type the pattern in the fzf search, then ~select all~ (with the <ctl-tab> keys—the keys can be customized in the ~tra_rm.sh~ script if needed) or select only the wanted ones (with the <tab> key)./
+/To delete files/directories matching pattern from trash, type the pattern in the fzf search, then select all (with the <ctrl-o> keys—the keys can be customized in the tra_rm.sh script if needed) or select only the wanted ones (with the <tab> key)./
 
 - any
 #+BEGIN_src sh

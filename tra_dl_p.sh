@@ -11,7 +11,7 @@
 # This script permanently deletes the selected files/directories from the trash
 # Individual files/directories can be selected with the <tab> key
 # A pattern can also be used before selection of individual files/directories (<tab> key)
-# or selection of all filtered files/directories with <ctrl-tab>
+# or selection of all filtered files/directories with <ctrl-o>
 
 topdir=$(findmnt -T . -n -o TARGET)
 
@@ -43,7 +43,7 @@ do
 
     echo $list
 
-done | sort -r | fzf -i -e +s -m --bind=ctrl-tab:select-all --preview="source-highlight --failsafe -f esc256 -i {-1}" |
+done | sort -r | fzf -i -e +s -m --bind=ctrl-o:select-all --preview="source-highlight --failsafe -f esc256 -i {-1}" |
 
     while read line
 

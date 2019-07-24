@@ -12,7 +12,7 @@
 # Only files/directories trashed from the current directory are accessed
 # Individual files/directories can be selected with the <tab> key
 # A pattern can also be used before selection of individual files/directories (<tab> key)
-# or selection of all filtered files/directories with <ctrl-tab>
+# or selection of all filtered files/directories with <ctrl-o>
 
 topdir=$(findmnt -T . -n -o TARGET)
 
@@ -45,7 +45,7 @@ do
 
     echo $list | grep $dir
 
-done | sort -r | fzf -i -e +s -m --bind=ctrl-tab:select-all | sed -E 's/.* [D ] (.* \| .*)/\1/' |
+done | sort -r | fzf -i -e +s -m --bind=ctrl-o:select-all | sed -E 's/.* [D ] (.* \| .*)/\1/' |
 
     while read line
 
