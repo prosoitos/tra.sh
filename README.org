@@ -48,15 +48,15 @@ Simply run any of the scripts from the command line (or from ranger, rofi, or yo
 
 You might want to set aliases (in your ~.zshrc~ file, or ~alias.zsh~ file, or ~.bashrc~ file, or wherever you normally define shell aliases). That way, you only have to call the alias to run the corresponding script.
 
-Below are suggested aliases.
+Below are suggested aliases and a summary table of all the commands using those aliases. If you set up those aliases, all you have to run is what is in the column "alias".
 
-Here is a summary of all the commands using those aliases:
+*** Summary of commands
 
-| command              | option                                                       | alias   | stands for                |
+| Category of command  | Option                                                       | Alias   | Alias explanation         |
 |----------------------+--------------------------------------------------------------+---------+---------------------------|
 | *send to trash*      |                                                              |         |                           |
 |----------------------+--------------------------------------------------------------+---------+---------------------------|
-|                      |                                                              | ts      | "trash send"              |
+|                      |                                                              | ts      | "*t*rash send"            |
 |----------------------+--------------------------------------------------------------+---------+---------------------------|
 | *list trash content* |                                                              |         |                           |
 |----------------------+--------------------------------------------------------------+---------+---------------------------|
@@ -88,6 +88,8 @@ Notes:
 - "both" stands for "both from current directory and with preview"
 - Replace ~<n>~ by an integer representing the number of days
 - Multi selections are possible with <tab>, ~select all~ with <ctrl-tab>
+
+*** Aliases
 
 **** Send files/directories to trash
 
