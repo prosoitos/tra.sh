@@ -17,7 +17,8 @@
 # It creates the trash if necessary
 # and stores the metadata necessary to restore items
 # If a file/directory of the same name already exists in trash,
-# it creates numbered backups
+# it creates numbered backups (the backup suffix is automatically
+# deleted if the file/directory is restored)
 
 topdir=$(findmnt -T . -n -o TARGET)
 
@@ -38,10 +39,11 @@ trash_file=$trash_path/files/$basename
 if [[ -e $trash_file ]]
 then
    i=0
-   while [[ -e $trash_file_$i ]] ; do
+   while [[ -e $trash_file~$i ]]
+   do
        let i++
    done
-   basename=$basename_$i
+   basename=$basename~$i
 fi
 
 mv $1 $trash_path/files/$basename
