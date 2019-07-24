@@ -43,7 +43,7 @@ do
 
     echo $list | grep $dir
 
-done | sort -r | fzf -i -e +s -m --preview="source-highlight --failsafe -f esc256 -i {-1}" |
+done | sort -r | fzf -i -e +s -m --bind=ctrl-tab:select-all --preview="source-highlight --failsafe -f esc256 -i {-1}" |
 
     while read line
 

@@ -43,7 +43,7 @@ do
     echo $list
 
     # remove the deletion time from the line selected by fzf
-done | sort -r | fzf -i -e +s -m --preview="source-highlight --failsafe -f esc256 -i {-1}" |
+done | sort -r | fzf -i -e +s -m --bind=ctrl-tab:select-all --preview="source-highlight --failsafe -f esc256 -i {-1}" |
 
     while read line
 
