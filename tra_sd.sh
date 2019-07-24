@@ -24,12 +24,20 @@ fi
 mkdir -p $trash_path/files
 mkdir -p $trash_path/info
 
-# mv --backup $1 $trash_path/files
-# mv --suffix=~conflict $1 $trash_path/files
-# mv --backup=t $1 $trash_path/files
-mv $1 $trash_path/files
-
 basename=$(echo $1 | sed -E 's/.*\/(.*)$/\1/')
+
+trash_file=$trash_path/files/$basename
+
+if [[ -e $trash_file ]]
+then
+   i=0
+   while [[ -e $trash_file_$i ]] ; do
+       let i++
+   done
+   basename=$basename_$i
+fi
+
+mv $1 $trash_path/files/$basename
 
 echo "[Trash Info]" > $trash_path/info/$basename.trashinfo
 echo "Path=$1" >> $trash_path/info/$basename.trashinfo
