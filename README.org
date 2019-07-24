@@ -72,14 +72,14 @@ Below are suggested aliases and a summary table of all the commands using those 
 |                      | entire trash from current mountpoint, with preview      | trp     | "trash restore preview"   |
 |                      | only files/dirs trashed from current dir, with preview  | trb     | "trash restore both"      |
 |----------------------+---------------------------------------------------------+---------+---------------------------|
-| *Permanently delete* |                                                         |         |                           |
+| *Delete from trash*  |                                                         |         |                           |
 |----------------------+---------------------------------------------------------+---------+---------------------------|
-|                      | entire trash from current mountpoint                    | trm     | "trash remove"            |
-|                      | only files/dirs trashed from current directory          | trd     | "trash remove directory"  |
-|                      | entire trash from current mountpoint, with preview      | trp     | "trash remove preview"    |
-|                      | only files/dirs trashed from current dir, with preview  | trb     | "trash remove both"       |
+|                      | entire trash from current mountpoint                    | tdl     | "trash delete"            |
+|                      | only files/dirs trashed from current directory          | tdd     | "trash delete directory"  |
+|                      | entire trash from current mountpoint, with preview      | tdp     | "trash delete preview"    |
+|                      | only files/dirs trashed from current dir, with preview  | tdb     | "trash delete both"       |
 |----------------------+---------------------------------------------------------+---------+---------------------------|
-| *Empty trash*        |                                                         |         |                           |
+| *Clean trash*        |                                                         |         |                           |
 |----------------------+---------------------------------------------------------+---------+---------------------------|
 |                      | entire trash from current mountpoint                    | tcl     | "trash clean"             |
 |                      | same, for files/dirs trashed up to (including) <n> days | tcd <n> | "trash clean date"        |
@@ -143,9 +143,35 @@ alias trp='zsh <path-to-tra.sh>/tra_rs_p.sh'
 alias trb='zsh <path-to-tra.sh>/tra_rs_dir_p.sh' # b for 'both' directory and preview
 #+END_src
 
+**** Delete trashed files/directories
+
+/Multiple files can be selected/unselected with the <tab> key (and <shift-tab> to move upward) in the fzf drop-down list./
+
+/To delete files/directories matching pattern from trash, type the pattern in the fzf search, then ~select all~ (with the <ctl-tab> keys—the keys can be customized in the ~tra_rm.sh~ script if needed) or select only the wanted ones (with the <tab> key)./
+
+- any
+#+BEGIN_src sh
+alias tdl='zsh <path-to-tra.sh>/tra_dl.sh'
+#+END_src
+
+- only those trashed from current directory
+#+BEGIN_src sh
+alias tdd='zsh <path-to-tra.sh>/tra_dl_dir.sh'
+#+END_src
+
+- any, with preview
+#+BEGIN_src sh
+alias tdp='zsh <path-to-tra.sh>/tra_dl_p.sh'
+#+END_src
+
+- only those trashed from current directory, with preview
+#+BEGIN_src sh
+alias tdb='zsh <path-to-tra.sh>/tra_dl_dir_p.sh' # b for 'both' directory and preview
+#+END_src
+
 **** Clean trash
 
-- permanently delete all files/directories in the trash
+- permanently delete all files/directories in the trash from current mount point (other trashes untouched)
 #+BEGIN_src sh
 alias tcl='zsh <path-to-tra.sh>/tra_cl.sh'
 #+END_src
@@ -157,14 +183,3 @@ alias tcd='zsh <path-to-tra.sh>/tra_cl_date.sh'
 # For example, in order to delete all files/directories 3 days old or older, type:
 # tcld 3
 #+END_src
-
-**** Remove items from trash selectively
-
-/Multiple files can be selected/unselected with the <tab> key (and <shift-tab> to move upward) in the fzf drop-down list./
-
-- remove files/directories from trash
-#+BEGIN_src sh
-alias trm='zsh <path-to-tra.sh>/tra_rm.sh'
-#+END_src
-
-To remove files/directories matching pattern from trash, type the pattern in the fzf search, then ~select all~ (with the <ctl-tab> keys—the keys can be customized in the ~tra_rm.sh~ script if needed) or select only the wanted ones (with the <tab> key).
