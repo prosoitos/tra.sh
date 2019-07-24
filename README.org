@@ -52,37 +52,37 @@ Below are suggested aliases and a summary table of all the commands using those 
 
 *** Summary of commands
 
-| Category of command  | Option                                                       | Alias   | Alias explanation         |
-|----------------------+--------------------------------------------------------------+---------+---------------------------|
-| *send to trash*      |                                                              |         |                           |
-|----------------------+--------------------------------------------------------------+---------+---------------------------|
-|                      |                                                              | ts      | "*t*rash send"            |
-|----------------------+--------------------------------------------------------------+---------+---------------------------|
-| *list trash content* |                                                              |         |                           |
-|----------------------+--------------------------------------------------------------+---------+---------------------------|
-|                      | entire trash from current mountpoint                         | tls     | "trash list"              |
-|                      | only files/dirs trashed from current directory               | tld     | "trash list directory"    |
-|                      | entire trash from current mountpoint, with preview           | tlp     | "trash list preview"      |
-|                      | only files/dirs trashed from current directory, with preview | tlb     | "trash list both"         |
-|----------------------+--------------------------------------------------------------+---------+---------------------------|
-| *restore from trash* |                                                              |         |                           |
-|----------------------+--------------------------------------------------------------+---------+---------------------------|
-|                      | entire trash from current mountpoint                         | trs     | "trash restore"           |
-|                      | only files/dirs trashed from current directory               | trd     | "trash restore directory" |
-|                      | entire trash from current mountpoint, with preview           | trp     | "trash restore preview"   |
-|                      | only files/dirs trashed from current directory, with preview | trb     | "trash restore both"      |
-|----------------------+--------------------------------------------------------------+---------+---------------------------|
-| *permanently delete* |                                                              |         |                           |
-|----------------------+--------------------------------------------------------------+---------+---------------------------|
-|                      | entire trash from current mountpoint                         | trm     | "trash remove"            |
-|                      | only files/dirs trashed from current directory               | trd     | "trash remove directory"  |
-|                      | entire trash from current mountpoint, with preview           | trp     | "trash remove preview"    |
-|                      | only files/dirs trashed from current directory, with preview | trb     | "trash remove both"       |
-|----------------------+--------------------------------------------------------------+---------+---------------------------|
-| *empty trash*        |                                                              |         |                           |
-|----------------------+--------------------------------------------------------------+---------+---------------------------|
-|                      | entire trash from current mountpoint (others untouched)      | tcl     | "trash clean"             |
-|                      | same, for files/dirs trashed up to (including) <n> days      | tcd <n> | "trash clean date"        |
+| Command              | Option                                                  | Alias   | Alias explanation         |
+|----------------------+---------------------------------------------------------+---------+---------------------------|
+| *Send to trash*      |                                                         |         |                           |
+|----------------------+---------------------------------------------------------+---------+---------------------------|
+|                      |                                                         | ts      | "trash send"              |
+|----------------------+---------------------------------------------------------+---------+---------------------------|
+| *List trash content* |                                                         |         |                           |
+|----------------------+---------------------------------------------------------+---------+---------------------------|
+|                      | entire trash from current mountpoint                    | tls     | "trash list"              |
+|                      | only files/dirs trashed from current directory          | tld     | "trash list directory"    |
+|                      | entire trash from current mountpoint, with preview      | tlp     | "trash list preview"      |
+|                      | only files/dirs trashed from current dir, with preview  | tlb     | "trash list both"         |
+|----------------------+---------------------------------------------------------+---------+---------------------------|
+| *Restore from trash* |                                                         |         |                           |
+|----------------------+---------------------------------------------------------+---------+---------------------------|
+|                      | entire trash from current mountpoint                    | trs     | "trash restore"           |
+|                      | only files/dirs trashed from current directory          | trd     | "trash restore directory" |
+|                      | entire trash from current mountpoint, with preview      | trp     | "trash restore preview"   |
+|                      | only files/dirs trashed from current dir, with preview  | trb     | "trash restore both"      |
+|----------------------+---------------------------------------------------------+---------+---------------------------|
+| *Permanently delete* |                                                         |         |                           |
+|----------------------+---------------------------------------------------------+---------+---------------------------|
+|                      | entire trash from current mountpoint                    | trm     | "trash remove"            |
+|                      | only files/dirs trashed from current directory          | trd     | "trash remove directory"  |
+|                      | entire trash from current mountpoint, with preview      | trp     | "trash remove preview"    |
+|                      | only files/dirs trashed from current dir, with preview  | trb     | "trash remove both"       |
+|----------------------+---------------------------------------------------------+---------+---------------------------|
+| *Empty trash*        |                                                         |         |                           |
+|----------------------+---------------------------------------------------------+---------+---------------------------|
+|                      | entire trash from current mountpoint                    | tcl     | "trash clean"             |
+|                      | same, for files/dirs trashed up to (including) <n> days | tcd <n> | "trash clean date"        |
 
 Notes:
 - "both" stands for "both from current directory and with preview"
