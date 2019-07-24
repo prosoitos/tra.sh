@@ -3,14 +3,20 @@
 #		   /
 #		   |_|  >_
 #
+#
+#     tra.sh: zsh scripts for trash management
 #     https://marie-helene-burle.netlify.com
 #     https://github.com/prosoitos
 #     https://twitter.com/MHBurle
 #     msb2@sfu.ca
-
+#
+#     GNU Affero General Public License
+#
+#
 # This script needs to be called followed by an integer
 # It empties the trash up to (and including) <integer> days ago
-# If <integer> is missing, all files/directories will be deleted from trash except for those trashed today
+# If <integer> is missing, all files/directories will be deleted
+# except for those trashed today
 
 topdir=$(findmnt -T . -n -o TARGET)
 
@@ -30,11 +36,13 @@ for i in $files_path/*(D)
 do
     basename=${i#$files_path/}
 
-    deletion_time=$(grep 'DeletionDate=' $info_path/$basename.trashinfo | sed 's/DeletionDate=//' | sed 's/T.*$//') 2> /dev/null
+    deletion_time=$(grep 'DeletionDate=' $info_path/$basename.trashinfo |
+			sed 's/DeletionDate=//' |
+			sed 's/T.*$//') 2> /dev/null
 
     # save stderr in file descriptor 3
     exec 3>&2
-    # do not show stderr (prevents 'cannot remove xxx.trashinfo' error when the the metadata is missing)
+    # do not show stderr (prevents error when metadata is missing)
     exec 2> /dev/null
 
     if expr "$deletion_time" "<=" "$cutoff" >/dev/null
@@ -45,5 +53,4 @@ do
 
     # restore stderr to prevent an exit 1
     exec 2>&3
-
 done

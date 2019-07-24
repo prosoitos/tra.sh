@@ -3,11 +3,16 @@
 #		   /
 #		   |_|  >_
 #
+#
+#     tra.sh: zsh scripts for trash management
 #     https://marie-helene-burle.netlify.com
 #     https://github.com/prosoitos
 #     https://twitter.com/MHBurle
 #     msb2@sfu.ca
-
+#
+#     GNU Affero General Public License
+#
+#
 # This script empties the trash
 
 topdir=$(findmnt -T . -n -o TARGET)
@@ -21,7 +26,7 @@ fi
 
 # save stderr in file descriptor 3
 exec 3>&2
-# do not show stderr (prevents 'no matches found' err to be displayed when the trash is empty)
+# do not show stderr (prevents error when trash is empty)
 exec 2> /dev/null
 
 # -f flag to delete files/dirs regardless of permission

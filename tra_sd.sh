@@ -3,14 +3,21 @@
 #		   /
 #		   |_|  >_
 #
+#
+#     tra.sh: zsh scripts for trash management
 #     https://marie-helene-burle.netlify.com
 #     https://github.com/prosoitos
 #     https://twitter.com/MHBurle
 #     msb2@sfu.ca
-
-# This script sends a file/directory to trash
-# (creating the trash if necessary)
-# and stores the metadata necessary to restore the file/directory
+#
+#     GNU Affero General Public License
+#
+#
+# This script sends files/directories to the trash
+# It creates the trash if necessary
+# and stores the metadata necessary to restore items
+# If a file/directory of the same name already exists in trash,
+# it creates numbered backups
 
 topdir=$(findmnt -T . -n -o TARGET)
 
@@ -40,5 +47,8 @@ fi
 mv $1 $trash_path/files/$basename
 
 echo "[Trash Info]" > $trash_path/info/$basename.trashinfo
+
 echo "Path=$1" >> $trash_path/info/$basename.trashinfo
-date +'%FT%T' | sed 's/^/DeletionDate=/' >> $trash_path/info/$basename.trashinfo
+
+date +'%FT%T' |
+    sed 's/^/DeletionDate=/' >> $trash_path/info/$basename.trashinfo

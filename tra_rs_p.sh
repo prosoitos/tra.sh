@@ -3,12 +3,20 @@
 #		   /
 #		   |_|  >_
 #
+#
+#     tra.sh: zsh scripts for trash management
 #     https://marie-helene-burle.netlify.com
 #     https://github.com/prosoitos
 #     https://twitter.com/MHBurle
 #     msb2@sfu.ca
-
-# This script restores a file/directory, with preview
+#
+#     GNU Affero General Public License
+#
+#
+# This script restores files/directories from the trash
+# It allows to preview text files
+# Multiple files/directories can be selected with <tab>
+# Patterns can also be used before selection of all files/directories with <ctrl-o>
 
 topdir=$(findmnt -T . -n -o TARGET)
 
@@ -34,19 +42,23 @@ do
     # remove $HOME/.local/share/Trash/files/ from f
     basename=${i#$files_path/}
 
-    # 2> /dev/null so as not to get error messages if the .trashinfo file is missing
-    original_path=$(grep 'Path=' $info_path/$basename.trashinfo | sed 's/Path=//' | sed 's/%20/ /g') 2> /dev/null
-    deletion_time=$(grep 'DeletionDate=' $info_path/$basename.trashinfo | sed 's/DeletionDate=//' | sed 's/T/ /') 2> /dev/null
+    # 2> /dev/null so as not to get error messages if metadata is missing
+    original_path=$(grep 'Path=' $info_path/$basename.trashinfo |
+			sed 's/Path=//' |
+			sed 's/%20/ /g') 2> /dev/null
+
+    deletion_time=$(grep 'DeletionDate=' $info_path/$basename.trashinfo |
+			sed 's/DeletionDate=//' |
+			sed 's/T/ /') 2> /dev/null
 
     list=$(echo $deletion_time $dir_or_file $basename \| $original_path \| $files_path/$basename )
 
     echo $list
-
     # remove the deletion time from the line selected by fzf
-done | sort -r | fzf -i -e +s -m --bind=ctrl-o:toggle-all --preview="source-highlight --failsafe -f esc256 -i {-1}" |
-
+done |
+    sort -r |
+    fzf -i -e +s -m --bind=ctrl-o:toggle-all --preview="source-highlight --failsafe -f esc256 -i {-1}" |
     while read line
-
     do
 	# select $basename from selected
 	basename_selected=$(echo $line | sed -E 's/.* [D ] (.*) \| .* \| .*/\1/')
