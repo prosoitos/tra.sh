@@ -48,7 +48,36 @@ Simply run any of the scripts from the command line (or from ranger, rofi, or yo
 
 You might want to set aliases (in your ~.zshrc~ file, or ~alias.zsh~ file, or ~.bashrc~ file, or wherever you normally define shell aliases). That way, you only have to call the alias to run the corresponding script.
 
-Here are suggested aliases:
+Below are suggested aliases.
+
+Here is a summary of all the commands using those aliases:
+
+| alias   | stands for                | command              | option                                                       |
+|---------+---------------------------+----------------------+--------------------------------------------------------------|
+| ts      | "trash send"              | send to trash        |                                                              |
+|---------+---------------------------+----------------------+--------------------------------------------------------------|
+| tls     | "trash list"              | list trash content   | entire trash from current mountpoint                         |
+| tld     | "trash list directory"    |                      | only files/dirs trashed from current directory               |
+| tlp     | "trash list preview"      |                      | entire trash from current mountpoint, with preview           |
+| tlb     | "trash list both"         |                      | only files/dirs trashed from current directory, with preview |
+|---------+---------------------------+----------------------+--------------------------------------------------------------|
+| trs     | "trash restore"           | restore from trash   | entire trash from current mountpoint                         |
+| trd     | "trash restore directory" |                      | only files/dirs trashed from current directory               |
+| trp     | "trash restore preview"   |                      | entire trash from current mountpoint, with preview           |
+| trb     | "trash restore both"      |                      | only files/dirs trashed from current directory, with preview |
+|---------+---------------------------+----------------------+--------------------------------------------------------------|
+| trm     | "trash remove"            | remove from trash    | entire trash from current mountpoint                         |
+| trd     | "trash remove directory"  | (permanently delete) | only files/dirs trashed from current directory               |
+| trp     | "trash remove preview"    |                      | entire trash from current mountpoint, with preview           |
+| trb     | "trash remove both"       |                      | only files/dirs trashed from current directory, with preview |
+|---------+---------------------------+----------------------+--------------------------------------------------------------|
+| tcl     | "trash clean"             | empty trash          | entire trash from current mountpoint (others untouched)      |
+| tcd <n> | "trash clean date"        | (permanently delete) | same, for files/dirs trashed up to (including) <n> days      |
+
+Notes:
+- "both" stands for "both from current directory and with preview"
+- Replace ~<n>~ by an integer representing the number of days
+- Multi selections are possible with <tab>, ~select all~ with <ctrl-tab>
 
 **** Send files/directories to trash
 
