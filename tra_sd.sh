@@ -20,14 +20,16 @@
 # it creates numbered backups (the backup suffix is automatically
 # deleted if the file/directory is restored)
 
-topdir=$(findmnt -T . -n -o TARGET)
+# topdir=$(findmnt -T . -n -o TARGET)
 
-if [[ $topdir = /home ]]
-then
-    trash_path=$HOME/.local/share/Trash
-else
-    trash_path=$topdir/.Trash
-fi
+# if [[ $topdir = /home ]]
+# then
+#     trash_path=$HOME/.local/share/Trash
+# else
+#     trash_path=$topdir/.Trash-1000
+# fi
+
+trash_path=$HOME/.local/share/Trash
 
 mkdir -p $trash_path/files
 mkdir -p $trash_path/info

@@ -18,14 +18,16 @@
 # Multiple files/directories can be selected with <tab>
 # A pattern can also be used before selection of all files/directories with <ctrl-o>
 
-topdir=$(findmnt -T . -n -o TARGET)
+# topdir=$(findmnt -T . -n -o TARGET)
 
-if [[ $topdir = /home ]]
-then
-    trash_path=$HOME/.local/share/Trash
-else
-    trash_path=$topdir/.Trash
-fi
+# if [[ $topdir = /home ]]
+# then
+#     trash_path=$HOME/.local/share/Trash
+# else
+#     trash_path=$topdir/.Trash-1000
+# fi
+
+trash_path=$HOME/.local/share/Trash
 
 files_path=$trash_path/files
 info_path=$trash_path/info
@@ -54,7 +56,7 @@ do
     echo $list
 done |
     sort -r |
-    fzf -i -e +s -m --bind=ctrl-o:toggle-all --preview="source-highlight --failsafe -f esc256 -i {-1}" |
+    fzf -i -e +s -m --bind=ctrl-o:toggle-all --header "Tab: toggle, C-o: toggle-all" --preview="source-highlight --failsafe -f esc256 -i {-1}" |
     while read line
     do
 	# select $basename from selected

@@ -18,14 +18,16 @@
 # Multiple files/directories can be selected with <tab>
 # Patterns can also be used before selection of all files/directories with <ctrl-o>
 
-topdir=$(findmnt -T . -n -o TARGET)
+# topdir=$(findmnt -T . -n -o TARGET)
 
-if [[ $topdir = /home ]]
-then
-    trash_path=$HOME/.local/share/Trash
-else
-    trash_path=$topdir/.Trash
-fi
+# if [[ $topdir = /home ]]
+# then
+#     trash_path=$HOME/.local/share/Trash
+# else
+#     trash_path=$topdir/.Trash-1000
+# fi
+
+trash_path=$HOME/.local/share/Trash
 
 files_path=$trash_path/files
 info_path=$trash_path/info
@@ -58,7 +60,7 @@ do
     # remove the deletion time from the line selected by fzf
 done |
     sort -r |
-    fzf -i -e +s -m --bind=ctrl-o:toggle-all |
+    fzf -i -e +s -m --bind=ctrl-o:toggle-all --header "Tab: toggle, C-o: toggle-all" |
     sed -E 's/.* [D ] (.* \| .*)/\1/' |
     while read line
     do

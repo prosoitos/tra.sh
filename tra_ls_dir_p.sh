@@ -17,14 +17,16 @@
 # which were trashed from the current directory
 # It allows to preview text files
 
-topdir=$(findmnt -T . -n -o TARGET)
+# topdir=$(findmnt -T . -n -o TARGET)
 
-if [[ $topdir = /home ]]
-then
-    trash_path=$HOME/.local/share/Trash
-else
-    trash_path=$topdir/.Trash
-fi
+# if [[ $topdir = /home ]]
+# then
+#     trash_path=$HOME/.local/share/Trash
+# else
+#     trash_path=$topdir/.Trash-1000
+# fi
+
+trash_path=$HOME/.local/share/Trash
 
 files_path=$trash_path/files
 info_path=$trash_path/info
